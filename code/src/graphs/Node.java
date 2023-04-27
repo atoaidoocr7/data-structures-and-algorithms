@@ -27,8 +27,13 @@ public class Node<E>{
         this.edges = edges;
     }
 
-    public void generateEdges(List<Node> nodes){
+    public void generateEdgesNodes(List<Node> nodes){
         nodes.forEach(edges::add);
+    }
+    public void generateEdgesValues(List<E> nodes){
+        for(E item : nodes){
+            edges.add(new Node(item));
+        }
     }
 
     public String toString(){

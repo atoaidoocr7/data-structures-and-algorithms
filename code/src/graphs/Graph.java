@@ -42,7 +42,17 @@ public class Graph {
         }
     }
 
-    private void depthFirstSearch(Node source, List<Node> output){
+    private void depthFirstSearchRecursive(Node source,  Set<Node> visited){
+        visited.add(source);
+        List<Node> neighbors = source.getEdges();
+        for(Node neighbor : neighbors){
+            if(!visited.contains(neighbor)){
+                depthFirstSearchRecursive(neighbor, visited);
+            }
+        }
+    }
+
+    private void depthFirstSeachIterative(Node source, List<Node> output){
 
     }
 
