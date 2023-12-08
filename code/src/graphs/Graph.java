@@ -2,38 +2,39 @@ package graphs;
 
 import java.util.*;
 
-public class Graph {
-    private List<Node> vertices;
+public class Graph<E> {
+    private List<Node<E>> vertices;
 
-    public List<Node> getVertices() {
+    public List<Node<E>> getVertices() {
         return vertices;
     }
-    public void setVertices(List<Node> vertices) {
+
+    public void addVertices(List<Node<E>> vertices){
+        System.out.println(vertices);
+    }
+    public void setVertices(List<Node<E>> vertices) {
         this.vertices = vertices;
     }
-    private List<Node> breadthFirstSearch(Node source){
-        Queue<Node> q = new LinkedList<>();
-        Set<Node> visited = new HashSet<>();
-        List<Node> output = new ArrayList<>();
+    private List<Node<E>> breadthFirstSearch(Node<E> source){
+        Queue<Node<E>> q = new LinkedList<>();
+        Set<Node<E>> visited = new HashSet<>();
+        List<Node<E>> output = new ArrayList<>();
 
-        for(Node vertex : vertices){
+        for(Node<E> vertex : vertices){
             if(!visited.contains(vertex)) {
                 breadthFirstSearch(vertex, output, visited, q);
             }
         }
         return output;
     }
-    private List<Node> depthFirstSearch(Node source, List<Node> output, Set<Node> visited){
-        return null;
-    }
-    private void breadthFirstSearch(Node source, List<Node> output, Set<Node> visited, Queue<Node> q){
+    private void breadthFirstSearch(Node<E> source, List<Node<E>> output, Set<Node<E>> visited, Queue<Node<E>> q){
         q.add(source);
         visited.add(source);
         while(!q.isEmpty()){
-            Node current = q.poll();
+            Node<E> current = q.poll();
             output.add(current);
-            List<Node> nodes = current.getEdges();
-            for(Node node : nodes){
+            List<Node<E>> nodes = current.getEdges();
+            for(Node<E> node : nodes){
                 if(!visited.contains(node)){
                     visited.add(node);
                     q.add(node);
@@ -42,17 +43,18 @@ public class Graph {
         }
     }
 
-    private void depthFirstSearchRecursive(Node source,  Set<Node> visited){
+    private void depthFirstSearchRecursive(Node<E> source,  Set<Node<E>> visited){
         visited.add(source);
-        List<Node> neighbors = source.getEdges();
-        for(Node neighbor : neighbors){
+        List<Node<E>> neighbors = source.getEdges();
+        for(Node<E> neighbor : neighbors){
             if(!visited.contains(neighbor)){
                 depthFirstSearchRecursive(neighbor, visited);
             }
         }
     }
 
-    private void depthFirstSeachIterative(Node source, List<Node> output){
+    public static void main(String[] args){
+        Graph<Integer> graph = new Graph<>();
 
     }
 

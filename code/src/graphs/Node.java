@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Node<E>{
     private E value;
-    private List<Node> edges;
+    private List<Node<E>> edges;
 
     public Node(E value){
         this.value = value;
@@ -19,16 +19,16 @@ public class Node<E>{
         this.value = value;
     }
 
-    public List<Node> getEdges() {
+    public List<Node<E>> getEdges() {
         return edges;
     }
 
-    public void setEdges(List<Node> edges) {
+    public void setEdges(List<Node<E>> edges) {
         this.edges = edges;
     }
 
-    public void generateEdgesNodes(List<Node> nodes){
-        nodes.forEach(edges::add);
+    public void generateEdgesNodes(List<Node<E>> nodes){
+        edges.addAll(nodes);
     }
     public void generateEdgesValues(List<E> nodes){
         for(E item : nodes){
@@ -39,6 +39,5 @@ public class Node<E>{
     public String toString(){
         return String.valueOf(value);
     }
-
 
 }
