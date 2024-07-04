@@ -16,7 +16,7 @@ public class DetectCycleDirected {
         for(int i = 0; i < graph.size(); i++) {
             // we do not want to revisit if we have already visited
             if(visited[i]==0) {
-                if(isCycle(graph, i, visited, dfsVisited));
+                if(isCycle(graph, i, visited, dfsVisited)) return true;
             }
         }
         return false;
