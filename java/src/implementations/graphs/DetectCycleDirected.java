@@ -37,5 +37,7 @@ public class DetectCycleDirected {
         dfsVisited[src] = 0;
         return false;
     }
-    public static void main(String[] args) {}
+    public static void main(String[] args) {
+        System.out.println("hello world");
+    }
 }
