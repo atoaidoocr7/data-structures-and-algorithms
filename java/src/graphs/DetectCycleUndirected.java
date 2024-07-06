@@ -7,7 +7,7 @@ public class DetectCycleUndirected {
         boolean[] visited = new boolean[graph.size()];
         for(int i = 0; i < graph.size(); i++) {
             if(!visited[i]) {
-                if(checkCycle(graph, i, -1, visited)==true) {
+                if(checkCycle(graph, i, -1, visited)) {
                     return true;
                 }
             }
